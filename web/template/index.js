@@ -20,7 +20,7 @@ function slideDown() {
 }
 var $scrollDownTips = document.getElementById('scrollDownTips');
 $main.onscroll = function() {
-  if ($main.scrollTop < window.screen.height * 0.2) {
+  if ($main.scrollTop < window.screen.height * 0.3) {
     $scrollDownTips.className = 'scroll-down-tips';
   } else {
     $scrollDownTips.className = 'scroll-down-tips hidden';
