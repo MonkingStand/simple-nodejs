@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const config = require('../../config');
+
 const {
   record: recordService,
 } = require('../../service');
@@ -17,7 +19,7 @@ _router.get('/', async (ctx) => {
   pageStr = pageStr.replace('${haveCheckedIn}', haveCheckedIn);
   pageStr = pageStr.replace(/\${imgStamp}/g, `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`);
 
-  console.info(await recordService.findMany());
+  config.env === 'development' && console.info(await recordService.findMany());
 
   ctx.body = pageStr;
 });

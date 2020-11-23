@@ -54,7 +54,7 @@ var $inputItemArr = $checkedForm.getElementsByClassName('form-input');
 $submitBtn.onclick = function() {
   // 校验字段数据
   for (let i = 0; i < $inputItemArr.length; i++) {
-    var $formInputItem = $inputItemArr[i].parentNode;
+    var $formInputItem = $inputItemArr[i].parentNode.parentNode;
     var inputType = $inputItemArr[i].getAttribute('name');
     var inputVal = $inputItemArr[i].value;
 
@@ -79,6 +79,6 @@ for (let i = 0; i < $inputItemArr.length; i++) {
   $inputItemArr[i].onfocus = function(evt) {
     $inputItem = evt.target;
 
-    $inputItem.parentNode.className = 'form-item';
+    $inputItem.parentNode.parentNode.className = 'form-item';
   };
 }

@@ -230,6 +230,12 @@
 .check-in-form .form-item .none-required:after {
   content: "(选填)";
 }
+.check-in-form .form-item .form-input-wrap {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin: 2px 0 0 0;
+  overflow: hidden;
+}
 .check-in-form .form-item input,
 .check-in-form .form-item textarea {
   display: block;
@@ -237,9 +243,7 @@
   height: 34px;
   line-height: 32px;
   padding: 0 5px;
-  margin: 2px 0 0 0;
-  border: 1px solid #ddd;
-  border-radius: 3px;;
+  border: none;
   font-size: 13px;
   outline: none;
   box-shadow: none;
@@ -262,7 +266,7 @@
   text-align: center;
   color: #fff;
   font-size: 14px;
-  background: linear-gradient(to top, #73E0EC 0%,#29B8DA 100%);
+  background: linear-gradient(to bottom, #73E0EC 0%,#29B8DA 100%);
 }
 /* 签到成功提示 */
 .checked-tips-dialog {
