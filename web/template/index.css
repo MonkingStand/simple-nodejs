@@ -26,6 +26,7 @@
   margin-top: 5vh;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 .slogan img {
   height: 100%;
@@ -38,6 +39,7 @@
   margin-top: 25vh;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 .check-in-title img {
   height: 100%;
@@ -48,6 +50,7 @@
   margin-top: 2.5vh;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 .check-in-sub-title img {
   height: 100%;
@@ -58,6 +61,7 @@
   margin-top: 2.5vh;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 .check-in-date img {
   height: 100%;
