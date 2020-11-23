@@ -9,9 +9,10 @@ const Router = require('koa-router');
 const _router = new Router();
 
 _router.get('/', async (ctx) => {
-  const haveCheckedIn = JSON.stringify(Boolean(ctx.session.checkedIn));
   const pageTpl = path.join(__dirname, '../template/index.html');
   const pageStr = fs.readFileSync(pageTpl).toString();
+
+  console.info(await recordService.findMany());
 
   ctx.body = pageStr;
 });
