@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         // 祝语
         congratulation: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         gmtCreate: {
             type: DataTypes.DATE,

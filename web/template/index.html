@@ -4,137 +4,79 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="image/png" href="https://cdn.nlark.com/yuque/0/2020/png/1351835/1594891636431-avatar/146ac11b-4087-4b37-af7b-b838dda501e8.png" rel="shortcut icon">
-    <title>天台发布会签到</title>
-    <style>
-      /* reset */
-      * {
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      }
-
-      html {
-        font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
-        height: 100%;
-        overflow-x: hidden;
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
-      }
-
-      body {
-        height: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        line-height: 1.5;
-        color: #333333;
-        background-color: white;
-        height: 100%;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      body,
-      dl,
-      dt,
-      dd,
-      ul,
-      ol,
-      li,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      pre,
-      code,
-      form,
-      fieldset,
-      legend,
-      input,
-      textarea,
-      p,
-      blockquote,
-      th,
-      td,
-      hr,
-      button,
-      article,
-      aside,
-      details,
-      figcaption,
-      figure,
-      footer,
-      header,
-      menu,
-      nav,
-      section {
-        margin: 0;
-        padding: 0;
-        border: 0;
-      }
-
-      a {
-        background: transparent;
-        text-decoration: none;
-        -webkit-tap-highlight-color: transparent;
-        color: orange;
-      }
-
-      s a:active {
-        outline: 0;
-        color: crimson;
-      }
-
-      address,
-      cite,
-      dfn,
-      em,
-      i,
-      var {
-        font-style: normal;
-      }
-
-      button {
-        user-select: none;
-      }
-
-      img {
-        vertical-align: middle;
-      }
-
-      img:not([src]),
-      img[src=""] {
-        opacity: 0;
-      }
-
-      ul,
-      ol {
-        list-style: none;
-      }
-
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-
-      input,
-      select,
-      button,
-      textarea {
-        font-size: 100%;
-        font: inherit;
-      }
-
-    </style>
-    <style>
-      /* customization */
-    </style>
+    <link type="image/png" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/logo.png" rel="shortcut icon">
+    <title>天台医共体智慧云平台</title>
+    <link rel="stylesheet" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/index.css">
   </head>
   <body>
-		<h1>你好，世界！</h1>
-    <script type="text/javascript">
-      alert('123');
-    </script>
+    <div class="main" id="main">
+      <div class="mask"></div>
+      <div class="container" id="container">
+        <div class="check-in-title">
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/title.png"/>
+        </div>
+        <div class="check-in-sub-title">
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/sub-title.png"/>
+        </div>
+        <div class="check-in-date">
+          <span>2020/11/27</span>
+        </div>
+        <div class="slogan">
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/slogan.png"/>
+        </div>
+        <div id="scrollDownTips" class="scroll-down-tips">
+          <div class="chevron"></div>
+          <div class="chevron"></div>
+          <div class="chevron"></div>
+          <span class="text">
+            下滑进行签到
+          </span>
+        </div>
+        <div class="check-in-form">
+          <div class="form-title">
+            发布会签到表
+          </div>
+          <form id="checkedForm" method="POST" action="/create-record">
+            <div class="form-item">
+              <label>单位（必填）</label>
+              <div class="error-tips">请填写单位</div>
+              <input type="text" name="company" class="form-input"/>
+            </div>
+            <div class="form-item">
+              <label>职务（必填）</label>
+              <div class="error-tips">请填写职务</div>
+              <input type="text" name="job" class="form-input"/>
+            </div>
+            <div class="form-item">
+              <label>姓名（必填）</label>
+              <div class="error-tips">请填写姓名</div>
+              <input type="text" name="name" class="form-input"/>
+            </div>
+            <div class="form-item">
+              <label>电话（必填）</label>
+              <div class="error-tips">请填写正确的联系电话</div>
+              <input type="text" name="mobile" class="form-input"/>
+            </div>
+            <div class="form-item">
+              <label>祝语</label>
+              <textarea type="text" name="congratulation" rows="2" class="form-input"></textarea>
+            </div>
+          </form>
+          <div id="submitBtn">
+            提交
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="checkedDialog" class="checked-tips-dialog">
+      <div class="dialog">
+        <div class="checked-title">签到成功 !</div>
+        <div class="checked-sub-title">感谢您此次来访</div>
+      </div>
+      <div id="closeLink" class="close-link">
+        <i class="close-link-icon"></i>
+      </div>
+    </div>
+    <script type="text/javascript" src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/index.js"></script>
   </body>
 </html>
