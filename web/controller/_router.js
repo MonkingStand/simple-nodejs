@@ -9,8 +9,13 @@ const Router = require('koa-router');
 const _router = new Router();
 
 _router.get('/', async (ctx) => {
+  const now = new Date();
+  const haveCheckedIn = JSON.stringify(Boolean(ctx.session.checkedIn));
   const pageTpl = path.join(__dirname, '../template/index.html');
-  const pageStr = fs.readFileSync(pageTpl).toString();
+  let pageStr = fs.readFileSync(pageTpl).toString();
+
+  pageStr = pageStr.replace('${haveCheckedIn}', haveCheckedIn);
+  pageStr = pageStr.replace(/\${imgStamp}/g, `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`);
 
   console.info(await recordService.findMany());
 

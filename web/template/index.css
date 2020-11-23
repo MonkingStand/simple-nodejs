@@ -12,17 +12,6 @@
   overflow-y: auto;
   background: #fff url(https://come-future.oss-cn-beijing.aliyuncs.com/check-in/bg.jpg) no-repeat center center / cover;
 }
-.mask {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #0674a7;
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 1;
-}
 .container {
   position: absolute;
   top: 0;
@@ -30,6 +19,18 @@
   bottom: 0;
   right: 0;
   z-index: 9;
+}
+.slogan {
+  display: flex;
+  height: 4vh;
+  margin-top: 5vh;
+  align-items: center;
+  justify-content: center;
+}
+.slogan img {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 .check-in-title {
   display: flex;
@@ -53,33 +54,13 @@
 }
 .check-in-date {
   display: flex;
-  height: 20px;
-  line-height: 20px;
+  height: 16px;
   margin-top: 2.5vh;
   align-items: center;
   justify-content: center;
 }
-.check-in-date span {
-  display: inline-block;
-  height: 20px;
-  line-height: 20px;
-  padding: 0 10px;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 12px;
-  background-color: #0674a7;
-}
-.slogan {
-  display: flex;
-  height: 4vh;
-  margin-top: 7.5vh;
-  align-items: center;
-  justify-content: center;
-}
-.slogan img {
+.check-in-date img {
   height: 100%;
-  padding: 0;
-  margin: 0;
 }
 /* 提示下滑 */
 @keyframes move {
@@ -109,7 +90,7 @@
     display: flex;
     left: 0;
     right: 0;
-    top: 85vh;
+    top: 87.5vh;
     justify-content: center;
     align-items: center;
 }
@@ -118,8 +99,8 @@
 }
 .scroll-down-tips .chevron {
     position: absolute;
-    width: 28px;
-    height: 8px;
+    width: 12px;
+    height: 2px;
     opacity: 0;
     transform: scale3d(0.5, 0.5, 0.5);
     animation: move 3s ease-out infinite;
@@ -141,12 +122,12 @@
 }
 .scroll-down-tips .chevron:before {
     left: 0;
-    transform: skew(0deg, 30deg);
+    transform: skew(0deg, 45deg);
 }
 .scroll-down-tips .chevron:after {
     right: 0;
     width: 50%;
-    transform: skew(0deg, -30deg);
+    transform: skew(0deg, -45deg);
 }
 .scroll-down-tips .text {
     display: block;
@@ -159,6 +140,14 @@
     animation: pulse 2s linear alternate infinite;
 }
 /* 下滑动画 */
+@keyframes slideUp {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
 @keyframes slideDown {
   0% {
     transform: translateY(0vh);
@@ -166,6 +155,10 @@
   100% {
     transform: translateY(-100vh);
   }
+}
+.container.uncheck-in {
+  transform: translateY(0);
+  animation: slideUp 0.5s ease;
 }
 .container.check-in {
   transform: translateY(-100vh);
@@ -182,41 +175,29 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
-.check-in-form .form-title {
+.check-in-form .check-form-title {
   position: absolute;
-  width: auto;
-  height: 32px;
-  line-height: 32px;
-  top: calc(17.5vh - 32px);
+  display: flex;
+  height: 40px;
+  top: 15vh;
   left: 10vw;
-  padding: 0 36px 0 10px;
+  right: 10vw;
+  margin-top: -38px;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px 10px 0 0;
-  color: #fff;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: bold;
-  background-color: #0674a7;
+  background-color: #fff;
 }
-.check-in-form .form-title:after {
-  position: absolute;
-  content: "";
-  width: 0px;
-  height: 0px;
-  top: -36px;
-  right: -30px;
-  border: 36px solid #666;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-bottom-color: #0674a7;
-  border-top-color: transparent;
+.check-in-form .check-form-title img {
+  height: 100%;
 }
 .check-in-form form {
   position: absolute;
-  top: 17.5vh;
+  top: 15vh;
   left: 10vw;
   right: 10vw;
-  padding: 10px;
-  border-radius: 0 10px 10px 10px;
+  padding: 15px 10px 10px;
+  border-radius: 0 0 10px 10px;
   background-color: #fff;
 }
 .check-in-form .form-item {
@@ -234,24 +215,34 @@
 }
 .check-in-form .form-item label {
   display: block;
-  height: 24px;
-  line-height: 24px;
+  height: 20px;
+  line-height: 20px;
   font-size: 13px;
+  color: #333;
+}
+.check-in-form .form-item label:after {
+  color: #999;
+  margin-left: 5px;
+}
+.check-in-form .form-item .required:after {
+  content: "(必填)";
+}
+.check-in-form .form-item .none-required:after {
+  content: "(选填)";
 }
 .check-in-form .form-item input,
 .check-in-form .form-item textarea {
   display: block;
   width: 100%;
-  height: 30px;
-  line-height: 28px;
+  height: 34px;
+  line-height: 32px;
   padding: 0 5px;
-  margin: 3px 0 0 0;
+  margin: 2px 0 0 0;
   border: 1px solid #ddd;
-  border-radius: 5px;;
+  border-radius: 3px;;
   font-size: 13px;
 }
 .check-in-form .form-item textarea {
-  height: 58px;
   resize: none;
 }
 .check-in-form .form-item input:focus,
@@ -259,27 +250,16 @@
   outline: none;
   border-color: #0674a7;
 }
-/* 提交按钮 */
-#submitBtn {
-  position: fixed;
-  display: none;
-  width: 52px;
-  height: 52px;
-  line-height: 52px;
-  top: 101vh;
-  right: 1vw;
-  padding: 0;
-  margin: 0;
-  border-radius: 50%;
+.check-in-form .submit-wrap {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 17px;
   text-align: center;
-  color: #0674a7;
-  font-size: 13px;
-  font-weight: bold;
-  background-color: #fff;
-}
-.check-in #submitBtn {
-  display: block;
-  z-index: 99;
+  color: #fff;
+  font-size: 14px;
+  background: linear-gradient(to top, #73E0EC 0%,#29B8DA 100%);
 }
 /* 签到成功提示 */
 .checked-tips-dialog {
@@ -289,7 +269,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   z-index: 99;
 }
 .checked-tips-dialog.active {
@@ -297,68 +277,69 @@
 }
 .checked-tips-dialog .dialog {
   position: absolute;
-  height: 100px;
-  left: 20vw;
-  right: 20vw;
+  height: 320px;
+  left: 10vw;
+  right: 10vw;
   top: 50%;
   padding: 20px 10px;
-  margin-top: -100px;
+  margin-top: -200px;
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
 }
 .checked-tips-dialog .checked-title {
-  height: 20px;
-  line-height: 20px;
+  display: flex;
+  height: 24px;
+  line-height: 24px;
   font-size: 16px;
   font-weight: bold;
+  font-size: 20px;
   color: #333;
-  text-align: center;
-}
-.checked-tips-dialog .checked-sub-title {
-  height: 20px;
-  line-height: 20px;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #aaa;
-  text-align: center;
-}
-.checked-tips-dialog .close-link {
-  position: absolute;
-  display: flex;
-  height: 28px;
-  width: 28px;
-  top: 50%;
-  left: 50%;
-  margin-left: -14px;
-  margin-top: 100px;
-  border-radius: 50%;
-  background: #fff;
   align-items: center;
   justify-content: center;
 }
-.checked-tips-dialog .close-link:before {
+.checked-tips-dialog .checked-in-icon {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 3px;
+  border-radius: 25px;
+  background: #36C5E7;
+}
+.checked-tips-dialog .checked-in-icon:after {
   position: absolute;
   content: "";
-  width: 1px;
-  height: 128px;
-  top: 50%;
-  left: 50%;
-  margin-top: -128px;
-  background-color: #fff;
+  width: 50%;
+  height: 25%;
+  left: 5px;
+  top: 7px;
+  border: 2px solid #fff;
+  border-radius: 1px;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  transform: rotate(-45deg);
 }
-.checked-tips-dialog .close-link-icon {
-  display: inline-block;
-  width: 20px;
-  height: 1px;
-  background: #aaa;
-  transform: rotate(45deg);
+.checked-tips-dialog .checked-sub-title {
+  height: 40px;
+  line-height: 20px;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #444;
+  text-align: center;
 }
-.checked-tips-dialog .close-link-icon:after {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 1px;
-  background: #aaa;
-  transform: rotate(-90deg);
+.checked-tips-dialog .qrcode-wrap {
+  display: flex;
+  width: 120px;
+  height: 120px;
+  margin: 25px auto 0;
+  align-items: center;
+  justify-content: center;
+}
+.checked-tips-dialog .qrcode-wrap img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }

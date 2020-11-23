@@ -11,14 +11,30 @@ function slideUp() {
 }
 function slideDown() {
   $container.className = 'container check-in';
+
+  setTimeout(function() {
+    $container.className = 'container';
+
+    $main.scrollTo(0, window.screen.height);
+  }, 500);
 }
+var $scrollDownTips = document.getElementById('scrollDownTips');
 $main.onscroll = function() {
+  if ($main.scrollTop < window.screen.height * 0.2) {
+    $scrollDownTips.className = 'scroll-down-tips';
+  } else {
+    $scrollDownTips.className = 'scroll-down-tips hidden';
+  }
+
   if (scrolling) return;
 
-  scrolling = true;
   current = $main.scrollTop;
+
   if (current > prev) {
-      slideDown()
+
+    scrolling = true;
+
+    slideDown()
   } else {
       slideUp();
   }
@@ -27,7 +43,6 @@ $main.onscroll = function() {
 // 判断用户是否提交了签到
 var submitTag = document.URL.indexOf('checked=true') !== -1;
 var $checkedDialog = document.getElementById('checkedDialog');
-var $scrollDownTips = document.getElementById('scrollDownTips');
 if (submitTag) {
   $checkedDialog.className = 'checked-tips-dialog active';
   $scrollDownTips.className = 'scroll-down-tips hidden';
@@ -66,10 +81,4 @@ for (let i = 0; i < $inputItemArr.length; i++) {
 
     $inputItem.parentNode.className = 'form-item';
   };
-}
-// 关闭签到弹框
-var $closeLink = document.getElementById('closeLink');
-$closeLink.onclick = function() {
-  $checkedDialog.className = 'checked-tips-dialog';
-  $scrollDownTips.className = 'scroll-down-tips';
 }
