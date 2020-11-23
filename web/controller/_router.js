@@ -12,12 +12,13 @@ const _router = new Router();
 
 _router.get('/', async (ctx) => {
   const now = new Date();
+  const stamp = config.env === 'development' ? Date.parse(new Date()) : `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
   const haveCheckedIn = JSON.stringify(Boolean(ctx.session.checkedIn));
   const pageTpl = path.join(__dirname, '../template/index.html');
   let pageStr = fs.readFileSync(pageTpl).toString();
 
   pageStr = pageStr.replace('${haveCheckedIn}', haveCheckedIn);
-  pageStr = pageStr.replace(/\${imgStamp}/g, `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`);
+  pageStr = pageStr.replace(/\${imgStamp}/g, stamp);
 
   config.env === 'development' && console.info(await recordService.findMany());
 
