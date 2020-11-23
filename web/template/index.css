@@ -10,7 +10,7 @@
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #fff url(https://come-future.oss-cn-beijing.aliyuncs.com/check-in/bg.jpg) no-repeat center center / cover;
+  background: #010B1E url(https://come-future.oss-cn-beijing.aliyuncs.com/check-in/bg.png) no-repeat center center / cover;
 }
 .container {
   position: absolute;
