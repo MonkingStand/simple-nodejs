@@ -4,8 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="image/png" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/logo.png" rel="shortcut icon">
+    <meta name="description" content="天台医共体智慧云平台启动仪式签到">
+    <meta name="keywords" content="天台医共体,智慧云平台">
+    <meta property="og:title" content="天台医共体智慧云平台">
+    <meta property="og:description" content="天台医共体智慧云平台启动仪式签到">
+    <meta property="og:image" content="//come-future.oss-cn-beijing.aliyuncs.com/check-in/logo.png">
     <title>天台医共体智慧云平台</title>
+    <link type="image/png" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/logo.png" rel="shortcut icon">
     <style>
       /* reset */
       *{box-sizing:border-box;-webkit-tap-highlight-color:rgba(0,0,0,0)}html{font-family:"Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;height:100%;overflow-x:hidden;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{height:100%;overflow-x:hidden;margin:0;line-height:1.5;color:#333;background-color:white;height:100%;overflow-x:hidden;-webkit-overflow-scrolling:touch}body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,menu,nav,section{margin:0;padding:0;border:0}a{background:transparent;text-decoration:none;-webkit-tap-highlight-color:transparent;color:orange}s a:active{outline:0;color:crimson}address,cite,dfn,em,i,var{font-style:normal}button{user-select:none}img{vertical-align:middle}img:not([src]),img[src=""]{opacity:0}ul,ol{list-style:none}table{border-collapse:collapse;border-spacing:0}input,select,button,textarea{font-size:100%;font:inherit}
@@ -23,17 +28,6 @@
         overflow-y: auto;
         background: #fff url(https://come-future.oss-cn-beijing.aliyuncs.com/check-in/bg.jpg) no-repeat center center / cover;
       }
-      .mask {
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #0674a7;
-        opacity: 0.5;
-        pointer-events: none;
-        z-index: 1;
-      }
       .container {
         position: absolute;
         top: 0;
@@ -41,6 +35,18 @@
         bottom: 0;
         right: 0;
         z-index: 9;
+      }
+      .slogan {
+        display: flex;
+        height: 4vh;
+        margin-top: 5vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .slogan img {
+        height: 100%;
+        padding: 0;
+        margin: 0;
       }
       .check-in-title {
         display: flex;
@@ -64,33 +70,13 @@
       }
       .check-in-date {
         display: flex;
-        height: 20px;
-        line-height: 20px;
+        height: 16px;
         margin-top: 2.5vh;
         align-items: center;
         justify-content: center;
       }
-      .check-in-date span {
-        display: inline-block;
-        height: 20px;
-        line-height: 20px;
-        padding: 0 10px;
-        border-radius: 12px;
-        color: #fff;
-        font-size: 12px;
-        background-color: #0674a7;
-      }
-      .slogan {
-        display: flex;
-        height: 4vh;
-        margin-top: 7.5vh;
-        align-items: center;
-        justify-content: center;
-      }
-      .slogan img {
+      .check-in-date img {
         height: 100%;
-        padding: 0;
-        margin: 0;
       }
       /* 提示下滑 */
       @keyframes move {
@@ -120,7 +106,7 @@
           display: flex;
           left: 0;
           right: 0;
-          top: 85vh;
+          top: 87.5vh;
           justify-content: center;
           align-items: center;
       }
@@ -129,8 +115,8 @@
       }
       .scroll-down-tips .chevron {
           position: absolute;
-          width: 28px;
-          height: 8px;
+          width: 12px;
+          height: 2px;
           opacity: 0;
           transform: scale3d(0.5, 0.5, 0.5);
           animation: move 3s ease-out infinite;
@@ -152,12 +138,12 @@
       }
       .scroll-down-tips .chevron:before {
           left: 0;
-          transform: skew(0deg, 30deg);
+          transform: skew(0deg, 45deg);
       }
       .scroll-down-tips .chevron:after {
           right: 0;
           width: 50%;
-          transform: skew(0deg, -30deg);
+          transform: skew(0deg, -45deg);
       }
       .scroll-down-tips .text {
           display: block;
@@ -170,6 +156,14 @@
           animation: pulse 2s linear alternate infinite;
       }
       /* 下滑动画 */
+      @keyframes slideUp {
+        0% {
+          transform: translateY(-100vh);
+        }
+        100% {
+          transform: translateY(0vh);
+        }
+      }
       @keyframes slideDown {
         0% {
           transform: translateY(0vh);
@@ -177,6 +171,10 @@
         100% {
           transform: translateY(-100vh);
         }
+      }
+      .container.uncheck-in {
+        transform: translateY(0);
+        animation: slideUp 0.5s ease;
       }
       .container.check-in {
         transform: translateY(-100vh);
@@ -193,33 +191,21 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
-      .check-in-form .form-title {
+      .check-in-form .check-form-title {
         position: absolute;
-        width: auto;
-        height: 32px;
-        line-height: 32px;
-        top: calc(17.5vh - 32px);
+        display: flex;
+        height: 40px;
+        top: 17.5vh;
         left: 10vw;
-        padding: 0 36px 0 10px;
+        right: 10vw;
+        margin-top: -38px;
+        align-items: center;
+        justify-content: center;
         border-radius: 10px 10px 0 0;
-        color: #fff;
-        font-size: 14px;
-        font-style: italic;
-        font-weight: bold;
-        background-color: #0674a7;
+        background-color: #fff;
       }
-      .check-in-form .form-title:after {
-        position: absolute;
-        content: "";
-        width: 0px;
-        height: 0px;
-        top: -36px;
-        right: -30px;
-        border: 36px solid #666;
-        border-left-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: #0674a7;
-        border-top-color: transparent;
+      .check-in-form .check-form-title img {
+        height: 100%;
       }
       .check-in-form form {
         position: absolute;
@@ -227,7 +213,7 @@
         left: 10vw;
         right: 10vw;
         padding: 10px;
-        border-radius: 0 10px 10px 10px;
+        border-radius: 0 0 10px 10px;
         background-color: #fff;
       }
       .check-in-form .form-item {
@@ -245,24 +231,34 @@
       }
       .check-in-form .form-item label {
         display: block;
-        height: 24px;
-        line-height: 24px;
+        height: 20px;
+        line-height: 20px;
         font-size: 13px;
+        color: #333;
+      }
+      .check-in-form .form-item label:after {
+        color: #999;
+        margin-left: 5px;
+      }
+      .check-in-form .form-item .required:after {
+        content: "(必填)";
+      }
+      .check-in-form .form-item .none-required:after {
+        content: "(选填)";
       }
       .check-in-form .form-item input,
       .check-in-form .form-item textarea {
         display: block;
         width: 100%;
-        height: 30px;
-        line-height: 28px;
+        height: 34px;
+        line-height: 32px;
         padding: 0 5px;
-        margin: 3px 0 0 0;
+        margin: 2px 0 0 0;
         border: 1px solid #ddd;
-        border-radius: 5px;;
+        border-radius: 3px;;
         font-size: 13px;
       }
       .check-in-form .form-item textarea {
-        height: 58px;
         resize: none;
       }
       .check-in-form .form-item input:focus,
@@ -270,27 +266,16 @@
         outline: none;
         border-color: #0674a7;
       }
-      /* 提交按钮 */
-      #submitBtn {
-        position: fixed;
-        display: none;
-        width: 52px;
-        height: 52px;
-        line-height: 52px;
-        top: 101vh;
-        right: 1vw;
-        padding: 0;
-        margin: 0;
-        border-radius: 50%;
+      .check-in-form .submit-wrap {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        height: 34px;
+        line-height: 34px;
+        border-radius: 17px;
         text-align: center;
-        color: #0674a7;
-        font-size: 13px;
-        font-weight: bold;
-        background-color: #fff;
-      }
-      .check-in #submitBtn {
-        display: block;
-        z-index: 99;
+        color: #fff;
+        font-size: 14px;
+        background: linear-gradient(to top, #73E0EC 0%,#29B8DA 100%);
       }
       /* 签到成功提示 */
       .checked-tips-dialog {
@@ -300,7 +285,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.1);
         z-index: 99;
       }
       .checked-tips-dialog.active {
@@ -308,88 +293,87 @@
       }
       .checked-tips-dialog .dialog {
         position: absolute;
-        height: 100px;
-        left: 20vw;
-        right: 20vw;
+        height: 360px;
+        left: 10vw;
+        right: 10vw;
         top: 50%;
         padding: 20px 10px;
-        margin-top: -100px;
+        margin-top: -180px;
         border-radius: 10px;
         overflow: hidden;
         background-color: #fff;
       }
       .checked-tips-dialog .checked-title {
+        display: flex;
         height: 20px;
         line-height: 20px;
         font-size: 16px;
         font-weight: bold;
         color: #333;
-        text-align: center;
-      }
-      .checked-tips-dialog .checked-sub-title {
-        height: 20px;
-        line-height: 20px;
-        margin-top: 10px;
-        font-size: 14px;
-        color: #aaa;
-        text-align: center;
-      }
-      .checked-tips-dialog .close-link {
-        position: absolute;
-        display: flex;
-        height: 28px;
-        width: 28px;
-        top: 50%;
-        left: 50%;
-        margin-left: -14px;
-        margin-top: 100px;
-        border-radius: 50%;
-        background: #fff;
         align-items: center;
         justify-content: center;
       }
-      .checked-tips-dialog .close-link:before {
-        position: absolute;
-        content: "";
-        width: 1px;
-        height: 128px;
-        top: 50%;
-        left: 50%;
-        margin-top: -128px;
-        background-color: #fff;
-      }
-      .checked-tips-dialog .close-link-icon {
+      .checked-tips-dialog .checked-in-icon {
+        position: relative;
         display: inline-block;
         width: 20px;
-        height: 1px;
-        background: #aaa;
-        transform: rotate(45deg);
+        height: 20px;
+        margin-right: 3px;
+        border-radius: 25px;
+        background: #36C5E7;
       }
-      .checked-tips-dialog .close-link-icon:after {
+      .checked-tips-dialog .checked-in-icon:after {
+        position: absolute;
         content: "";
-        display: block;
-        width: 20px;
-        height: 1px;
-        background: #aaa;
-        transform: rotate(-90deg);
+        width: 50%;
+        height: 25%;
+        left: 4px;
+        top: 5px;
+        border: 2px solid #fff;
+        border-radius: 1px;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+        transform: rotate(-45deg);
+      }
+      .checked-tips-dialog .checked-sub-title {
+        height: 40px;
+        line-height: 20px;
+        margin-top: 50px;
+        font-size: 14px;
+        color: #444;
+        text-align: center;
+      }
+      .checked-tips-dialog .qrcode-wrap {
+        display: flex;
+        width: 120px;
+        height: 120px;
+        margin: 40px auto 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .checked-tips-dialog .qrcode-wrap img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
       }
     </style>
   </head>
   <body>
     <div class="main" id="main">
-      <div class="mask"></div>
       <div class="container" id="container">
+        <div class="slogan">
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/slogan.png?imgStamp=${imgStamp}"/>
+        </div>
         <div class="check-in-title">
-          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/title.png"/>
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/title.png?imgStamp=${imgStamp}"/>
         </div>
         <div class="check-in-sub-title">
-          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/sub-title.png"/>
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/sub-title.png?imgStamp=${imgStamp}"/>
         </div>
         <div class="check-in-date">
-          <span>2020/11/27</span>
-        </div>
-        <div class="slogan">
-          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/slogan.png"/>
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/check-in-date.png?imgStamp=${imgStamp}"/>
         </div>
         <div id="scrollDownTips" class="scroll-down-tips">
           <div class="chevron"></div>
@@ -400,51 +384,59 @@
           </span>
         </div>
         <div class="check-in-form">
-          <div class="form-title">
-            发布会签到表
+          <div class="check-form-title">
+            <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/check-form-title.png?imgStamp=${imgStamp}"/>
           </div>
           <form id="checkedForm" method="POST" action="/create-record">
             <div class="form-item">
-              <label>单位（必填）</label>
+              <label class="required">单位</label>
               <div class="error-tips">请填写单位</div>
               <input type="text" name="company" class="form-input"/>
             </div>
             <div class="form-item">
-              <label>职务（必填）</label>
+              <label class="required">职务</label>
               <div class="error-tips">请填写职务</div>
               <input type="text" name="job" class="form-input"/>
             </div>
             <div class="form-item">
-              <label>姓名（必填）</label>
+              <label class="required">姓名</label>
               <div class="error-tips">请填写姓名</div>
               <input type="text" name="name" class="form-input"/>
             </div>
             <div class="form-item">
-              <label>电话（必填）</label>
+              <label class="required">电话</label>
               <div class="error-tips">请填写正确的联系电话</div>
               <input type="text" name="mobile" class="form-input"/>
             </div>
             <div class="form-item">
-              <label>祝语</label>
-              <textarea type="text" name="congratulation" rows="2" class="form-input"></textarea>
+              <label class="none-required">祝福语</label>
+              <textarea type="text" name="congratulation" rows="1" class="form-input"></textarea>
+            </div>
+            <div class="submit-wrap">
+              <div id="submitBtn">提交</div>
             </div>
           </form>
-          <div id="submitBtn">
-            提交
-          </div>
         </div>
       </div>
     </div>
     <div id="checkedDialog" class="checked-tips-dialog">
       <div class="dialog">
-        <div class="checked-title">签到成功 !</div>
-        <div class="checked-sub-title">感谢您此次来访</div>
-      </div>
-      <div id="closeLink" class="close-link">
-        <i class="close-link-icon"></i>
+        <div class="checked-title">
+          <i class="checked-in-icon"></i>
+          签到成功
+        </div>
+        <div class="checked-sub-title">
+          长按识别二维码
+          <br>
+          进入天台医共体讨论群
+        </div>
+        <div class="qrcode-wrap">
+          <img src="https://come-future.oss-cn-beijing.aliyuncs.com/check-in/qrcode.png?imgStamp=${imgStamp}"/>
+        </div>
       </div>
     </div>
     <script type="text/javascript">
+      var haveCheckedIn = ${haveCheckedIn};
       var $main = document.getElementById('main');
       var $container = document.getElementById('container');
       // 初始化重置滚动条位置
@@ -458,14 +450,30 @@
       }
       function slideDown() {
         $container.className = 'container check-in';
+
+        setTimeout(function() {
+          $container.className = 'container';
+
+          $main.scrollTo(0, window.screen.height);
+        }, 500);
       }
+      var $scrollDownTips = document.getElementById('scrollDownTips');
       $main.onscroll = function() {
+        if ($main.scrollTop < window.screen.height * 0.2) {
+          $scrollDownTips.className = 'scroll-down-tips';
+        } else {
+          $scrollDownTips.className = 'scroll-down-tips hidden';
+        }
+
         if (scrolling) return;
 
-        scrolling = true;
         current = $main.scrollTop;
+
         if (current > prev) {
-            slideDown()
+
+          scrolling = true;
+
+          slideDown()
         } else {
             slideUp();
         }
@@ -474,7 +482,6 @@
       // 判断用户是否提交了签到
       var submitTag = document.URL.indexOf('checked=true') !== -1;
       var $checkedDialog = document.getElementById('checkedDialog');
-      var $scrollDownTips = document.getElementById('scrollDownTips');
       if (submitTag) {
         $checkedDialog.className = 'checked-tips-dialog active';
         $scrollDownTips.className = 'scroll-down-tips hidden';
@@ -513,12 +520,6 @@
 
           $inputItem.parentNode.className = 'form-item';
         };
-      }
-      // 关闭签到弹框
-      var $closeLink = document.getElementById('closeLink');
-      $closeLink.onclick = function() {
-        $checkedDialog.className = 'checked-tips-dialog';
-        $scrollDownTips.className = 'scroll-down-tips';
       }
     </script>
   </body>
