@@ -4,6 +4,7 @@
 /* 主界面 slogan 相关 */
 .main {
   position: absolute;
+  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -13,12 +14,7 @@
   background: #010B1E url(https://come-future.oss-cn-beijing.aliyuncs.com/check-in/bg.jpg) no-repeat center center / cover;
 }
 .container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 9;
+  height: 100vh;
 }
 .slogan {
   display: flex;
@@ -143,41 +139,9 @@
     opacity: .25;
     animation: pulse 2s linear alternate infinite;
 }
-/* 下滑动画 */
-@keyframes slideUp {
-  0% {
-    transform: translateY(-100vh);
-  }
-  100% {
-    transform: translateY(0vh);
-  }
-}
-@keyframes slideDown {
-  0% {
-    transform: translateY(0vh);
-  }
-  100% {
-    transform: translateY(-100vh);
-  }
-}
-.container.uncheck-in {
-  transform: translateY(0);
-  animation: slideUp 0.5s ease;
-}
-.container.check-in {
-  transform: translateY(-100vh);
-  animation: slideDown 0.5s ease;
-}
 /* 签到表单 */
 .check-in-form {
-  position: absolute;
-  display: block;
-  height: 100vh;
-  top: 100vh;
-  left: 0;
-  right: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  position: relative;
 }
 .check-in-form .check-form-title {
   position: absolute;
@@ -191,9 +155,11 @@
   justify-content: center;
   border-radius: 10px 10px 0 0;
   background-color: #fff;
+  overflow: hidden;
 }
 .check-in-form .check-form-title img {
   height: 100%;
+  margin-top: -2px;
 }
 .check-in-form form {
   position: absolute;

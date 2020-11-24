@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="天台医共体智慧云平台启动仪式签到">
     <meta name="keywords" content="天台医共体,智慧云平台">
     <meta property="og:title" content="天台医共体智慧云平台">
@@ -11,74 +11,78 @@
     <meta property="og:image" content="//come-future.oss-cn-beijing.aliyuncs.com/check-in/logo.png">
     <title>天台医共体智慧云平台</title>
     <link type="image/png" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/logo.png" rel="shortcut icon">
-    <link rel="stylesheet" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/index.css?imgStamp=${imgStamp}">
+    <link rel="stylesheet" href="//come-future.oss-cn-beijing.aliyuncs.com/check-in/index.css">
   </head>
   <body>
     <div class="main" id="main">
       <div class="container" id="container">
-        <div class="slogan">
-          <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/slogan.png?imgStamp=${imgStamp}"/>
-        </div>
-        <div class="check-in-title">
-          <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/title.png?imgStamp=${imgStamp}"/>
-        </div>
-        <div class="check-in-sub-title">
-          <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/sub-title.png?imgStamp=${imgStamp}"/>
-        </div>
-        <div class="check-in-date">
-          <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/check-in-date.png?imgStamp=${imgStamp}"/>
-        </div>
-        <div id="scrollDownTips" class="scroll-down-tips">
-          <div class="chevron"></div>
-          <div class="chevron"></div>
-          <div class="chevron"></div>
-          <span class="text">
-            下滑进行签到
-          </span>
-        </div>
-        <div class="check-in-form">
-          <div class="check-form-title">
-            <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/check-form-title.png?imgStamp=${imgStamp}"/>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slogan">
+              <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/slogan.png?imgStamp=${imgStamp}"/>
+            </div>
+            <div class="check-in-title">
+              <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/title.png?imgStamp=${imgStamp}"/>
+            </div>
+            <div class="check-in-sub-title">
+              <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/sub-title.png?imgStamp=${imgStamp}"/>
+            </div>
+            <div class="check-in-date">
+              <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/check-in-date.png?imgStamp=${imgStamp}"/>
+            </div>
+            <div id="scrollDownTips" class="scroll-down-tips">
+              <div class="chevron"></div>
+              <div class="chevron"></div>
+              <div class="chevron"></div>
+              <span class="text">
+                下滑进行签到
+              </span>
+            </div>
           </div>
-          <form id="checkedForm" method="POST" action="/create-record">
-            <div class="form-item">
-              <label class="required">单位</label>
-              <div class="error-tips">请填写单位</div>
-              <div class="form-input-wrap">
-                <input type="text" name="company" class="form-input"/>
+          <div class="swiper-slide check-in-form">
+            <div class="check-form-title">
+              <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/check-form-title.png?imgStamp=${imgStamp}"/>
+            </div>
+            <form id="checkedForm" method="POST" action="/create-record">
+              <div class="form-item">
+                <label class="required">单位</label>
+                <div class="error-tips">请填写单位</div>
+                <div class="form-input-wrap">
+                  <input type="text" name="company" class="form-input"/>
+                </div>
               </div>
-            </div>
-            <div class="form-item">
-              <label class="required">职务</label>
-              <div class="error-tips">请填写职务</div>
-              <div class="form-input-wrap">
-                <input type="text" name="job" class="form-input"/>
+              <div class="form-item">
+                <label class="required">职务</label>
+                <div class="error-tips">请填写职务</div>
+                <div class="form-input-wrap">
+                  <input type="text" name="job" class="form-input"/>
+                </div>
               </div>
-            </div>
-            <div class="form-item">
-              <label class="required">姓名</label>
-              <div class="error-tips">请填写姓名</div>
-              <div class="form-input-wrap">
-                <input type="text" name="name" class="form-input"/>
+              <div class="form-item">
+                <label class="required">姓名</label>
+                <div class="error-tips">请填写姓名</div>
+                <div class="form-input-wrap">
+                  <input type="text" name="name" class="form-input"/>
+                </div>
               </div>
-            </div>
-            <div class="form-item">
-              <label class="required">电话</label>
-              <div class="error-tips">请填写正确的联系电话</div>
-              <div class="form-input-wrap">
-                <input type="text" name="mobile" class="form-input"/>
+              <div class="form-item">
+                <label class="required">电话</label>
+                <div class="error-tips">请填写正确的联系电话</div>
+                <div class="form-input-wrap">
+                  <input type="text" name="mobile" class="form-input"/>
+                </div>
               </div>
-            </div>
-            <div class="form-item">
-              <label class="none-required">祝福语</label>
-              <div class="form-input-wrap">
-                <textarea type="text" name="congratulation" rows="1" class="form-input"></textarea>
+              <div class="form-item">
+                <label class="none-required">祝福语</label>
+                <div class="form-input-wrap">
+                  <textarea type="text" name="congratulation" rows="1" class="form-input"></textarea>
+                </div>
               </div>
-            </div>
-            <div class="submit-wrap">
-              <div id="submitBtn">提交</div>
-            </div>
-          </form>
+              <div class="submit-wrap">
+                <div id="submitBtn">提交</div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -101,6 +105,6 @@
     <script type="text/javascript">
       var haveCheckedIn = ${haveCheckedIn};
     </script>
-    <script type="text/javascript" src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/index.js?imgStamp=${imgStamp}"></script>
+    <script type="text/javascript" src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/index.js"></script>
   </body>
 </html>
