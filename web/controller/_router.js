@@ -12,7 +12,6 @@ const _router = new Router();
 
 _router.get('/', async (ctx) => {
   const now = new Date();
-  const stamp = config.env === 'development' ? Date.parse(new Date()) : `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
   const pageTpl = path.join(__dirname, '../template/index.html');
   let pageStr = fs.readFileSync(pageTpl).toString();
   let haveCheckedIn = JSON.stringify(Boolean(ctx.session.checkedIn));
@@ -23,7 +22,7 @@ _router.get('/', async (ctx) => {
   console.info(haveCheckedIn);
 
   pageStr = pageStr.replace('${haveCheckedIn}', haveCheckedIn);
-  pageStr = pageStr.replace(/\${imgStamp}/g, stamp);
+  pageStr = pageStr.replace(/\${imgStamp}/g, `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`);
 
   config.env === 'development' && console.info(await recordService.findMany());
 
