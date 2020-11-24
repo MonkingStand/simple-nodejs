@@ -9,9 +9,12 @@ if (submitTag) {
   $scrollDownTips.className = 'scroll-down-tips hidden';
 }
 // 提交表单
+var $checkedFormTitle = document.getElementsByClassName('check-form-title')[0];
 var $submitBtn = document.getElementById('submitBtn');
 var $checkedForm = document.getElementById('checkedForm');
 var $inputItemArr = $checkedForm.getElementsByClassName('form-input');
+$checkedFormTitle.className = 'check-form-title';
+$checkedForm.className = '';
 $submitBtn.onclick = function() {
   // 校验字段数据
   for (let i = 0; i < $inputItemArr.length; i++) {

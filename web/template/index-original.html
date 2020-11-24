@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
     <meta name="description" content="天台医共体智慧云平台启动仪式签到">
     <meta name="keywords" content="天台医共体,智慧云平台">
     <meta property="og:title" content="天台医共体智慧云平台">
@@ -445,9 +445,12 @@
         $scrollDownTips.className = 'scroll-down-tips hidden';
       }
       // 提交表单
+      var $checkedFormTitle = document.getElementsByClassName('check-form-title')[0];
       var $submitBtn = document.getElementById('submitBtn');
       var $checkedForm = document.getElementById('checkedForm');
       var $inputItemArr = $checkedForm.getElementsByClassName('form-input');
+      $checkedFormTitle.className = 'check-form-title';
+      $checkedForm.className = '';
       $submitBtn.onclick = function() {
         // 校验字段数据
         for (let i = 0; i < $inputItemArr.length; i++) {

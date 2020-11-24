@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
     <meta name="description" content="天台医共体智慧云平台启动仪式签到">
     <meta name="keywords" content="天台医共体,智慧云平台">
     <meta property="og:title" content="天台医共体智慧云平台">
@@ -40,10 +40,10 @@
             </div>
           </div>
           <div class="swiper-slide check-in-form">
-            <div class="check-form-title">
+            <div class="check-form-title hidden">
               <img src="//come-future.oss-cn-beijing.aliyuncs.com/check-in/check-form-title.png?imgStamp=${imgStamp}"/>
             </div>
-            <form id="checkedForm" method="POST" action="/create-record">
+            <form id="checkedForm" class="hidden" method="POST" action="/create-record">
               <div class="form-item">
                 <label class="required">单位</label>
                 <div class="error-tips">请填写单位</div>
